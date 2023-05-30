@@ -2,26 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body,
+html,
+#root {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.SelectType input {
+  appearance: none;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 5px 10px;
+  background: #3f414d;
+  color: #ececec;
+  font-size: 15px;
+  font-family: sans-serif;
+  transition: all 0.1s;
+  border-radius: 8px;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.SelectType input:checked {
+  background: #6ee7b7;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 0px #808080;
+  color: black;
+}
+.SelectType input::before {
+  content: attr(aria-label);
+  text-align: center;
 }
